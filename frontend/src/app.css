@@ -1,0 +1,684 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.App {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.app-header {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.app-title {
+  flex: 1;
+  min-width: 250px;
+}
+
+.app-title h1 {
+  font-size: 2em;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 5px;
+}
+
+.app-title p {
+  color: #666;
+  font-size: 0.95em;
+}
+
+/* Wallet Connect */
+.wallet-connect {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.connect-button,
+.disconnect-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.connect-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.connect-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.connect-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.disconnect-button {
+  background: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.9em;
+}
+
+.disconnect-button:hover {
+  background: #dc2626;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f8fafc;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+.account-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-label {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.account-address {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  border: 1px solid #e2e8f0;
+}
+
+.account-balance {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+/* Error Message */
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  margin: 15px 0;
+}
+
+.success-message {
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+  color: #047857;
+}
+
+.info-message {
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  color: #1e40af;
+}
+
+.warning-message {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  color: #92400e;
+}
+
+/* Poll Grid */
+.poll-list-container {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.poll-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.poll-list-header h2 {
+  margin: 0;
+}
+
+.refresh-button,
+.retry-button {
+  padding: 10px 18px;
+  background: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.refresh-button:hover,
+.retry-button:hover {
+  background: #e2e8f0;
+}
+
+.poll-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.poll-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.poll-card.active {
+  border-color: #10b981;
+}
+
+.poll-card.closed {
+  border-color: #ef4444;
+  opacity: 0.8;
+}
+
+.poll-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.poll-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.poll-card-header h3 {
+  flex: 1;
+  margin-right: 10px;
+  color: #1e293b;
+}
+
+.poll-status {
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.poll-status.open {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.poll-status.closed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.poll-description {
+  color: #64748b;
+  margin-bottom: 15px;
+  font-size: 0.95em;
+}
+
+.poll-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.poll-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.poll-meta-item .label {
+  font-size: 0.85em;
+  color: #64748b;
+}
+
+.poll-meta-item .value {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.poll-timing {
+  font-size: 0.9em;
+  color: #64748b;
+  margin-bottom: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.view-poll-button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-poll-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Voting Interface */
+.voting-interface {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.voting-interface h2 {
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.voting-interface .poll-description {
+  margin-bottom: 25px;
+  color: #64748b;
+}
+
+.candidates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.candidate-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.candidate-card:hover:not(.disabled) {
+  border-color: #667eea;
+  transform: translateX(5px);
+}
+
+.candidate-card.selected {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+
+.candidate-card.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.candidate-info h3 {
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.vote-count {
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+.vote-bar-container {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.vote-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.5s ease;
+}
+
+.selected-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #667eea;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.voting-stats {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.voting-stats p {
+  margin: 5px 0;
+  color: #64748b;
+}
+
+.vote-button {
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.vote-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+.vote-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.warning-text {
+  color: #dc2626;
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Transactions */
+.transactions-container {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.transactions-header h2 {
+  margin: 0;
+}
+
+.transactions-table-wrapper {
+  overflow-x: auto;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.transactions-table thead {
+  background: #f8fafc;
+}
+
+.transactions-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.transactions-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.transactions-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.transaction-type {
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.poll-title {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.tx-details {
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+.explorer-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+  transition: color 0.3s ease;
+}
+
+.explorer-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.timestamp {
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+.tx-hash {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.transactions-loading,
+.transactions-error,
+.transactions-empty,
+.poll-list-loading,
+.poll-list-error,
+.poll-list-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.transactions-info {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+/* Spinner */
+.spinner {
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 15px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f1f5f9;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #e2e8f0;
+  transform: rotate(90deg);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .poll-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .app-title h1 {
+    font-size: 1.5em;
+  }
+
+  .wallet-info {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .account-details {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .poll-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transactions-table {
+    font-size: 0.85em;
+  }
+
+  .transactions-table th,
+  .transactions-table td {
+    padding: 10px 8px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+
+  .app-header {
+    padding: 20px;
+  }
+
+  .poll-list-container,
+  .voting-interface,
+  .transactions-container {
+    padding: 20px;
+  }
+}
