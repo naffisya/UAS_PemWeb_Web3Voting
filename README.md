@@ -1,4 +1,4 @@
-Blockchain Voting System
+# Blockchain Voting System
 Aplikasi web full-stack yang mengintegrasikan blockchain Ethereum (Sepolia Testnet) untuk sistem voting yang aman, transparan, dan terdesentralisasi.
 
 Fitur
