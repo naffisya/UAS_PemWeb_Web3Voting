@@ -48,12 +48,11 @@ Currency Symbol: ETH
 ## Smart Contract
 Fungsi Utama Smart Contract:
 Admin Functions:
-
-## createPoll(string title, string description, string[] candidateNames, uint256 duration): Membuat poll baru
+createPoll(string title, string description, string[] candidateNames, uint256 duration): Membuat poll baru
 endPoll(uint256 pollId): Menutup poll
 transferAdmin(address newAdmin): Transfer ownership
 
-##Voter Functions:
+## Voter Functions:
 vote(uint256 pollId, uint256 candidateId): Memberikan vote
 hasVoted(uint256 pollId, address voter): Cek status voting
 
