@@ -16,7 +16,7 @@ Aplikasi web full-stack yang mengintegrasikan blockchain Ethereum (Sepolia Testn
 3. Blockchain: Ethereum Sepolia Testnet, Solidity
 4. Tools: MetaMask, Remix (untuk deployment)
 
-##Instalasi & Setup
+## Instalasi & Setup
 Prasyarat
 
 Node.js (v16 atau lebih tinggi)
@@ -45,11 +45,11 @@ RPC URL: https://sepolia.infura.io/v3/YOUR_INFURA_KEY
 Chain ID: 11155111
 Currency Symbol: ETH
 
-##Smart Contract
+## Smart Contract
 Fungsi Utama Smart Contract:
 Admin Functions:
 
-##createPoll(string title, string description, string[] candidateNames, uint256 duration): Membuat poll baru
+## createPoll(string title, string description, string[] candidateNames, uint256 duration): Membuat poll baru
 endPoll(uint256 pollId): Menutup poll
 transferAdmin(address newAdmin): Transfer ownership
 
@@ -57,12 +57,12 @@ transferAdmin(address newAdmin): Transfer ownership
 vote(uint256 pollId, uint256 candidateId): Memberikan vote
 hasVoted(uint256 pollId, address voter): Cek status voting
 
-##View Functions:
+## View Functions:
 getPollInfo(uint256 pollId): Informasi poll
 getCandidate(uint256 pollId, uint256 candidateId): Informasi kandidat
 getPollResults(uint256 pollId): Hasil voting
 
-##Deploy Smart Contract
+## Deploy Smart Contract
 📌 Remix IDE 
 Quick steps:
 
@@ -100,5 +100,5 @@ Smart contract mencegah double voting
 Jika masih terjadi, contract belum deployed
 Gunakan demo mode (backend API)
 
-##License
+## License
 Project ini dibuat untuk keperluan pemenuhan tugas UAS.
