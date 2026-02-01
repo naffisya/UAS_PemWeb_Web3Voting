@@ -16,9 +16,8 @@ Backend: Node.js, Express.js
 Blockchain: Ethereum Sepolia Testnet, Solidity
 Tools: MetaMask, Remix (untuk deployment)
 
-##🔧 Konfigurasi
+##Konfigurasi
 ###Setup MetaMask untuk Sepolia Testnet
-
 Buka MetaMask
 Klik network dropdown → "Add Network"
 Pilih "Sepolia Test Network" atau tambahkan manual:
